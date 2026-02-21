@@ -11,7 +11,7 @@ fi
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install -y ca-certificates curl gnupg nginx rsync
+apt-get install -y ca-certificates curl gnupg nginx rsync openssl
 
 if ! command -v node >/dev/null 2>&1 || [[ "$(node -v | sed 's/v//' | cut -d. -f1)" -lt 20 ]]; then
   install -d -m 0755 /etc/apt/keyrings
@@ -40,6 +40,13 @@ systemctl daemon-reload
 systemctl enable --now heleon-api.service
 
 sed "s/__DOMAIN__/${DOMAIN} www.${DOMAIN}/g" "${APP_DIR}/deploy/nginx/heleon.conf.template" > /etc/nginx/sites-available/heleon
+install -d -m 755 /etc/nginx/ssl
+if [[ ! -f /etc/nginx/ssl/hele.one.crt || ! -f /etc/nginx/ssl/hele.one.key ]]; then
+  openssl req -x509 -nodes -newkey rsa:2048 -days 3650 \
+    -keyout /etc/nginx/ssl/hele.one.key \
+    -out /etc/nginx/ssl/hele.one.crt \
+    -subj "/CN=${DOMAIN}"
+fi
 ln -sf /etc/nginx/sites-available/heleon /etc/nginx/sites-enabled/heleon
 if [[ -f /etc/nginx/sites-enabled/default ]]; then
   rm -f /etc/nginx/sites-enabled/default
