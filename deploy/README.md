@@ -22,6 +22,12 @@ From this repo root:
 ./scripts/deploy-hetzner.sh <VM_PUBLIC_IP> hele.one root
 ```
 
+If your SSH key is not the default identity:
+
+```bash
+SSH_KEY_PATH=~/.ssh/your_key ./scripts/deploy-hetzner.sh <VM_PUBLIC_IP> hele.one root
+```
+
 ## 3) What it configures on VM
 
 - Node.js 20, Nginx
@@ -44,4 +50,3 @@ curl -fsS http://127.0.0.1:8787/api/health
 From browser:
 
 - `https://hele.one`
-
