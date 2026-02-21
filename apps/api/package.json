@@ -1,0 +1,22 @@
+{
+  "name": "@heleon/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.mjs",
+    "start": "node src/server.mjs",
+    "build:gtfs": "node ../../scripts/build-static-gtfs.mjs",
+    "validate:feeds": "node ../../scripts/validate-feeds.mjs",
+    "sample:feeds": "node ../../scripts/sample-feeds.mjs",
+    "summarize:sample": "node ../../scripts/summarize-sample.mjs"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "adm-zip": "^0.5.16",
+    "csv-parse": "^6.1.0",
+    "fastify": "^5.6.1",
+    "gtfs-realtime-bindings": "^1.1.1"
+  }
+}

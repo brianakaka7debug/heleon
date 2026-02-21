@@ -1,0 +1,24 @@
+{
+  "name": "heleon-tracker",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Hele-On real-time tracker MVP workspace",
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm --workspace @heleon/api run dev\" \"npm --workspace @heleon/web run dev\"",
+    "dev:api": "npm --workspace @heleon/api run dev",
+    "dev:web": "npm --workspace @heleon/web run dev",
+    "build": "npm --workspace @heleon/web run build",
+    "start": "npm --workspace @heleon/api run start",
+    "validate:feeds": "npm --workspace @heleon/api run validate:feeds",
+    "sample:feeds": "npm --workspace @heleon/api run sample:feeds",
+    "summarize:sample": "npm --workspace @heleon/api run summarize:sample",
+    "build:gtfs": "npm --workspace @heleon/api run build:gtfs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

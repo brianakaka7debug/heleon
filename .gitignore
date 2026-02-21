@@ -1,0 +1,9 @@
+node_modules
+npm-debug.log*
+.DS_Store
+.env
+apps/api/data/raw/*
+apps/api/data/compiled/*.json
+apps/api/data/reports/*
+!apps/api/data/compiled/.gitkeep
+!apps/api/data/reports/.gitkeep
