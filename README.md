@@ -45,6 +45,13 @@ Key API env vars (defaults shown):
 - `MAX_SSE_CONNECTIONS_PER_IP=5`
 - `GTFS_TIMEZONE=Pacific/Honolulu`
 
+## Production Deploy (Hetzner + Cloudflare)
+
+- Deploy both web + API on one VM:
+  - `./scripts/deploy-hetzner.sh <VM_PUBLIC_IP> hele.one root`
+- Full guide:
+  - `deploy/README.md`
+
 ## Notes
 
 - The frontend uses polling by default (10-60s) to keep MVP simple.

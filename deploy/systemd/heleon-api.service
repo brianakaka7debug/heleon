@@ -1,0 +1,18 @@
+[Unit]
+Description=Hele.one API
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/heleon/app
+EnvironmentFile=-/etc/default/heleon-api
+ExecStart=/usr/bin/npm --workspace @heleon/api run start
+Restart=always
+RestartSec=3
+KillSignal=SIGINT
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target
