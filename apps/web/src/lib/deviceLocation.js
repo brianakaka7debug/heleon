@@ -1,8 +1,8 @@
 export const DEVICE_LOCATION_FALLBACK = {
-  lat: 19.5830871,
-  lon: -154.9693901,
+  lat: 19.6228,
+  lon: -154.9794,
   city: 'Keaau',
   region: 'Hawaii',
-  label: 'HPP near 16th Ave & Makuu',
+  label: 'Keaau center',
   source: 'user-specified'
 };

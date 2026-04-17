@@ -2,6 +2,7 @@ node_modules
 npm-debug.log*
 .DS_Store
 .env
+apps/web/dist/
 apps/api/data/raw/*
 apps/api/data/compiled/*.json
 apps/api/data/reports/*
